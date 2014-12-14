@@ -1,8 +1,8 @@
 package org.mybop.gae.channelapi;
 
+import android.net.http.AndroidHttpClient;
+
 import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.mybop.gae.channelapi.exception.ChannelException;
 
 import java.io.IOException;
@@ -16,11 +16,6 @@ import java.net.URI;
  * @see org.mybop.gae.channelapi.prod.ProdChannel
  */
 public abstract class BaseChannel implements Channel {
-
-	/**
-	 * This builder is public for customisation reason
-	 */
-	public static HttpClientBuilder HTTP_CLIENT_BUILDER = HttpClientBuilder.create();
 
 	/**
 	 * base url for channel operation on server
@@ -59,7 +54,7 @@ public abstract class BaseChannel implements Channel {
 
 	private ChannelHandler handler = null;
 
-	private CloseableHttpClient httpClient = null;
+	private AndroidHttpClient httpClient = null;
 
 	private Thread longPollingThread = null;
 
@@ -77,7 +72,7 @@ public abstract class BaseChannel implements Channel {
 	public synchronized void open() throws IOException, ChannelException {
 		if (ChannelState.NOT_CONNECTED.equals(getState())) {
 			setState(ChannelState.CONNECTING);
-			httpClient = HTTP_CLIENT_BUILDER.build();
+			httpClient = AndroidHttpClient.newInstance("");
 			connect();
 			longPoll();
 		}
