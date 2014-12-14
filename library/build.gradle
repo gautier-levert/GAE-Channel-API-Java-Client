@@ -1,16 +1,23 @@
-apply plugin: 'java'
+apply plugin: 'com.android.library'
 
-version = 1.0
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
-
-repositories {
-    mavenCentral()
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
-    compile 'org.apache.httpcomponents:httpclient:4.3.6'
-    compile 'org.json:json:20141113'
     compile 'org.apache.commons:commons-lang3:3.3.2'
 }
