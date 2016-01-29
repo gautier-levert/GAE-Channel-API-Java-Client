@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -19,5 +19,6 @@ android {
 }
 
 dependencies {
-    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'cz.msebera.android:httpclient:4.4.1.1'
 }
