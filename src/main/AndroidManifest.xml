@@ -1,7 +1,3 @@
-<manifest package="org.mybop.channelapi">
-
-    <application>
-
-    </application>
+<manifest package="org.mybop.gae.channelapi">
 
 </manifest>

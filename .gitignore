@@ -1,4 +1,4 @@
-GAE-Channel-API-Java-Client.iml
+*.iml
 local.properties
 .gradle
 .idea
